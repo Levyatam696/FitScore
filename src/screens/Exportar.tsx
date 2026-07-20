@@ -36,7 +36,7 @@ export default function Exportar({ navigate, user, avaliacoes }: ScreenProps) {
 
       {/* Header */}
       <div style={{ padding: '52px 20px 16px', position: 'relative' }}>
-        <button onClick={() => navigate('dashboard', {}, 'back')} style={{
+        <button onClick={() => navigate('dashboard', undefined, 'back')} style={{
           background: 'rgba(255,255,255,0.06)', border: 'none', cursor: 'pointer',
           color: '#A855F7', padding: '8px', borderRadius: '12px',
           display: 'flex', alignItems: 'center', marginBottom: '16px',

@@ -38,7 +38,6 @@ export default function Dashboard({ navigate, user, avaliados, avaliacoes }: Scr
 
   return (
     <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
-      {/* Ambient blobs */}
       <div style={{
         position: 'absolute', top: '-60px', right: '-40px', width: '260px', height: '260px',
         borderRadius: '50%', background: 'radial-gradient(circle,#7C3AED,transparent 70%)',
@@ -52,7 +51,6 @@ export default function Dashboard({ navigate, user, avaliados, avaliacoes }: Scr
         animation: 'floatBlob2 18s ease-in-out infinite',
       }}/>
 
-      {/* Header */}
       <div style={{ padding: '52px 20px 20px', position: 'relative' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
@@ -78,7 +76,6 @@ export default function Dashboard({ navigate, user, avaliados, avaliacoes }: Scr
 
       <div style={{ padding: '0 16px 24px', display: 'flex', flexDirection: 'column', gap: '14px', position: 'relative' }}>
 
-        {/* Feature card: Score médio */}
         <div className="glass scale-in" style={{
           borderRadius: '24px', padding: '20px',
           background: 'linear-gradient(135deg,rgba(109,40,217,0.18),rgba(232,121,249,0.08))',
@@ -99,7 +96,6 @@ export default function Dashboard({ navigate, user, avaliados, avaliacoes }: Scr
           </div>
         </div>
 
-        {/* Stats */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '10px' }}>
           {[
             { label: 'Avaliados', value: avaliados.length, emoji: '👤', delay: 100 },
@@ -119,7 +115,6 @@ export default function Dashboard({ navigate, user, avaliados, avaliacoes }: Scr
           ))}
         </div>
 
-        {/* Sync banner */}
         {unsynced.length > 0 && (
           <div className="glass item-in" style={{
             borderRadius: '16px', padding: '14px 16px',
@@ -150,7 +145,6 @@ export default function Dashboard({ navigate, user, avaliados, avaliacoes }: Scr
           </div>
         )}
 
-        {/* Quick actions */}
         <div>
           <p style={{ margin: '0 0 10px', fontSize: '11px', fontWeight: 700, color: '#4B5060', letterSpacing: '1.2px' }}>
             ⚡ AÇÕES RÁPIDAS
@@ -171,7 +165,6 @@ export default function Dashboard({ navigate, user, avaliados, avaliacoes }: Scr
           </div>
         </div>
 
-        {/* Recent */}
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
             <p style={{ margin: 0, fontSize: '11px', fontWeight: 700, color: '#4B5060', letterSpacing: '1.2px' }}>

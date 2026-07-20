@@ -13,14 +13,23 @@ export default function Login({ navigate, setUser }: ScreenProps) {
     setError('')
     setLoading(true)
     setTimeout(() => {
-      const u = USERS.find(u => u.email === email.trim())
-      if (u && password === '123456') {
-        setUser(u)
-        navigate('dashboard')
-      } else {
-        setError('E-mail ou senha incorretos')
+      const normalizedEmail = email.trim().toLowerCase()
+      const u = USERS.find(user => user.email.toLowerCase() === normalizedEmail)
+
+      if (!u) {
+        setError('E-mail não encontrado no ambiente de demonstração.')
         setLoading(false)
+        return
       }
+
+      if (password !== '123456') {
+        setError('Senha incorreta. Use a senha de demonstração: 123456.')
+        setLoading(false)
+        return
+      }
+
+      setUser(u)
+      navigate('dashboard')
     }, 900)
   }
 
@@ -60,7 +69,6 @@ export default function Login({ navigate, setUser }: ScreenProps) {
         .btn-primary { transition: opacity 0.15s, transform 0.15s; }
       `}</style>
 
-      {/* Background blobs */}
       <div className="blob-a" style={{
         position: 'absolute', top: '-100px', left: '-80px',
         width: '320px', height: '320px', borderRadius: '50%',
@@ -74,7 +82,6 @@ export default function Login({ navigate, setUser }: ScreenProps) {
         filter: 'blur(48px)', opacity: 0.22, pointerEvents: 'none',
       }} />
 
-      {/* Logo */}
       <div className="logo-in" style={{ marginBottom: '28px', textAlign: 'center' }}>
         <div style={{
           fontSize: '30px', fontWeight: 800,
@@ -86,7 +93,6 @@ export default function Login({ navigate, setUser }: ScreenProps) {
         </div>
       </div>
 
-      {/* Card */}
       <div className="card-in" style={{
         width: '100%', maxWidth: '380px',
         backgroundColor: '#0D0D1C', borderRadius: '24px',
@@ -97,7 +103,6 @@ export default function Login({ navigate, setUser }: ScreenProps) {
           Entre para continuar avaliando
         </p>
 
-        {/* Email */}
         <div style={{ marginBottom: '12px' }}>
           <label style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.8px' }}>E-MAIL</label>
           <input
@@ -108,7 +113,6 @@ export default function Login({ navigate, setUser }: ScreenProps) {
           />
         </div>
 
-        {/* Password */}
         <div style={{ marginBottom: error ? '10px' : '8px' }}>
           <label style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.8px' }}>SENHA</label>
           <div style={{ position: 'relative', marginTop: '6px' }}>
@@ -142,7 +146,6 @@ export default function Login({ navigate, setUser }: ScreenProps) {
           </button>
         </div>
 
-        {/* Login button */}
         <button
           className="btn-primary"
           onClick={doLogin}
@@ -163,14 +166,12 @@ export default function Login({ navigate, setUser }: ScreenProps) {
             : 'Entrar'}
         </button>
 
-        {/* Divider */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', margin: '18px 0' }}>
           <div style={{ flex: 1, height: '1px', backgroundColor: '#1E1B3A' }} />
           <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 500 }}>ou continue com</span>
           <div style={{ flex: 1, height: '1px', backgroundColor: '#1E1B3A' }} />
         </div>
 
-        {/* Social */}
         <div style={{ display: 'flex', gap: '10px' }}>
           <button className="social" onClick={doSocial} style={{
             flex: 1, padding: '12px',
@@ -207,7 +208,6 @@ export default function Login({ navigate, setUser }: ScreenProps) {
           </button>
         </p>
 
-        {/* Demo hint */}
         <div style={{
           marginTop: '14px', padding: '10px 14px',
           backgroundColor: '#12102A', borderRadius: '10px', border: '1px solid #2D1B69',

@@ -42,7 +42,7 @@ export default function NovaAvaliacao({ navigate, params, user, avaliados, avali
   const imc    = peso && altura ? (parseFloat(peso) / Math.pow(parseFloat(altura) / 100, 2)).toFixed(1) : ''
   const imcCls = imc ? (parseFloat(imc) < 18.5 ? 'Regular' : parseFloat(imc) < 25 ? 'Bom' : 'Regular') : 'Bom'
 
-  const goBack = () => step > 1 ? setStep(s => s - 1) : navigate('dashboard', {}, 'back')
+  const goBack = () => step > 1 ? setStep(s => s - 1) : navigate('dashboard')
 
   const save = () => {
     const results: TesteResult[] = []
@@ -76,7 +76,6 @@ export default function NovaAvaliacao({ navigate, params, user, avaliados, avali
 
   return (
     <div style={{ flex: 1 }}>
-      {/* Header */}
       <div style={{ padding: '52px 20px 16px', position: 'relative' }}>
         <button onClick={goBack} style={{
           background: 'rgba(255,255,255,0.06)', border: 'none', cursor: 'pointer',
@@ -93,7 +92,6 @@ export default function NovaAvaliacao({ navigate, params, user, avaliados, avali
         </p>
       </div>
 
-      {/* Step indicator */}
       <div style={{ padding: '0 20px 16px', display: 'flex', gap: '6px', alignItems: 'center' }}>
         {STEPS.map((s, i) => (
           <div key={s} style={{ display: 'flex', alignItems: 'center', flex: i < STEPS.length - 1 ? 1 : 'none' }}>
@@ -120,7 +118,6 @@ export default function NovaAvaliacao({ navigate, params, user, avaliados, avali
 
       <div style={{ padding: '0 16px 32px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
 
-        {/* STEP 1 */}
         {step === 1 && (
           <>
             <p style={{ margin: '0 0 2px', fontSize: '16px', fontWeight: 700 }}>Selecionar Aluno</p>
@@ -161,7 +158,6 @@ export default function NovaAvaliacao({ navigate, params, user, avaliados, avali
           </>
         )}
 
-        {/* STEP 2 */}
         {step === 2 && (
           <>
             <p style={{ margin: '0 0 2px', fontSize: '16px', fontWeight: 700 }}>Tipo de Avaliação</p>
@@ -190,7 +186,6 @@ export default function NovaAvaliacao({ navigate, params, user, avaliados, avali
           </>
         )}
 
-        {/* STEP 3 */}
         {step === 3 && (
           <>
             <p style={{ margin: '0 0 2px', fontSize: '16px', fontWeight: 700 }}>📏 Dados Antropométricos</p>
@@ -231,7 +226,6 @@ export default function NovaAvaliacao({ navigate, params, user, avaliados, avali
           </>
         )}
 
-        {/* STEP 4 */}
         {step === 4 && (
           <>
             <p style={{ margin: '0 0 2px', fontSize: '16px', fontWeight: 700 }}>

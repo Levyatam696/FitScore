@@ -22,7 +22,6 @@ export default function Admin({ navigate, avaliados, avaliacoes }: ScreenProps) 
 
   return (
     <div style={{ flex: 1, position: 'relative' }}>
-      {/* Blob */}
       <div style={{
         position: 'absolute', top: '-30px', left: '-30px', width: '200px', height: '200px',
         borderRadius: '50%', background: 'radial-gradient(circle,#6D28D9,transparent 70%)',
@@ -30,7 +29,6 @@ export default function Admin({ navigate, avaliados, avaliacoes }: ScreenProps) 
         animation: 'floatBlob 15s ease-in-out infinite',
       }}/>
 
-      {/* Header */}
       <div style={{ padding: '52px 20px 20px', position: 'relative' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{
@@ -49,7 +47,6 @@ export default function Admin({ navigate, avaliados, avaliacoes }: ScreenProps) 
 
       <div style={{ padding: '0 16px 32px', display: 'flex', flexDirection: 'column', gap: '14px', position: 'relative' }}>
 
-        {/* Stats grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '8px' }}>
           {stats.map((s, i) => (
             <div key={s.label} className="glass item-in" style={{
@@ -67,7 +64,6 @@ export default function Admin({ navigate, avaliados, avaliacoes }: ScreenProps) 
           ))}
         </div>
 
-        {/* Avaliadores */}
         <div>
           <p style={{ margin: '0 0 10px', fontSize: '11px', fontWeight: 700, color: '#4B5060', letterSpacing: '1.2px' }}>
             👨‍🏫 AVALIADORES ({avaliadores.length})
@@ -122,7 +118,6 @@ export default function Admin({ navigate, avaliados, avaliacoes }: ScreenProps) 
           </div>
         </div>
 
-        {/* All recent */}
         <div>
           <p style={{ margin: '0 0 10px', fontSize: '11px', fontWeight: 700, color: '#4B5060', letterSpacing: '1.2px' }}>
             🕐 TODAS AS AVALIAÇÕES
@@ -161,7 +156,6 @@ export default function Admin({ navigate, avaliados, avaliacoes }: ScreenProps) 
           </div>
         </div>
 
-        {/* Admin actions */}
         <div style={{ display: 'flex', gap: '10px' }}>
           <button onClick={() => navigate('exportar')} className="lift" style={{
             flex: 1, padding: '14px',

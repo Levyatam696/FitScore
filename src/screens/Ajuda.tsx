@@ -39,7 +39,6 @@ export default function Ajuda({ navigate: _ }: ScreenProps) {
 
   return (
     <div style={{ flex: 1 }}>
-      {/* Header */}
       <div style={{ padding: '52px 20px 16px', position: 'relative' }}>
         <div style={{
           position: 'absolute', top: '-20px', right: '-30px', width: '180px', height: '180px',
@@ -57,7 +56,6 @@ export default function Ajuda({ navigate: _ }: ScreenProps) {
 
       <div style={{ padding: '0 16px 32px', display: 'flex', flexDirection: 'column', gap: '10px', position: 'relative' }}>
 
-        {/* Quick links */}
         <div style={{ display: 'flex', gap: '8px', marginBottom: '4px' }}>
           {[
             { label: 'IMC', emoji: '⚖️' },
@@ -76,7 +74,6 @@ export default function Ajuda({ navigate: _ }: ScreenProps) {
           ))}
         </div>
 
-        {/* PROESP badge */}
         <div className="glass" style={{
           padding: '14px 16px', borderRadius: '18px',
           background: 'linear-gradient(135deg,rgba(109,40,217,0.15),rgba(168,85,247,0.06))',
@@ -92,7 +89,6 @@ export default function Ajuda({ navigate: _ }: ScreenProps) {
           </div>
         </div>
 
-        {/* Accordion */}
         {sections.map((s, i) => (
           <div key={i} className="glass item-in" style={{
             borderRadius: '20px', overflow: 'hidden',

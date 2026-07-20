@@ -2,7 +2,7 @@ import type { Screen, User } from '../types'
 
 interface Props {
   screen: Screen
-  navigate: (screen: Screen) => void
+  navigate: (screen: Screen, params?: Record<string, string>, direction?: 'forward' | 'back') => void
   user: User | null
 }
 
@@ -85,7 +85,6 @@ export default function BottomNav({ screen, navigate, user }: Props) {
       <Tab icon={icons.home}  label="Início"    active={screen === 'dashboard'} onClick={() => navigate('dashboard')} />
       <Tab icon={icons.users} label="Avaliados" active={isAvaliados}            onClick={() => navigate('avaliados')} />
 
-      {/* FAB */}
       <button
         onClick={() => navigate('nova-avaliacao')}
         style={{

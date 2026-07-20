@@ -21,7 +21,6 @@ export default function Relatorio({ navigate, params, avaliados, avaliacoes }: S
   const isFemale = al.gender === 'F'
   const cls = overallCls(av.score)
 
-  /* Ring math */
   const cx = 64, cy = 64, r = 52, sw = 9
   const circ = 2 * Math.PI * r
   const arcTotal = circ * 0.75
@@ -30,13 +29,11 @@ export default function Relatorio({ navigate, params, avaliados, avaliacoes }: S
 
   return (
     <div style={{ flex: 1 }}>
-      {/* Header hero */}
       <div style={{
         padding: '48px 20px 24px',
         background: `linear-gradient(160deg, ${isFemale ? 'rgba(190,24,93,0.22)' : 'rgba(109,40,217,0.22)'} 0%, rgba(7,7,15,0) 65%)`,
         position: 'relative',
       }}>
-        {/* Blob */}
         <div style={{
           position: 'absolute', top: 0, right: 0, width: '200px', height: '200px',
           borderRadius: '50%', background: 'radial-gradient(circle,#7C3AED,transparent 70%)',
@@ -45,7 +42,7 @@ export default function Relatorio({ navigate, params, avaliados, avaliacoes }: S
         }}/>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', position: 'relative' }}>
-          <button onClick={() => navigate('avaliados', {}, 'back')} style={{
+          <button onClick={() => navigate('avaliados', undefined, 'back')} style={{
             background: 'rgba(255,255,255,0.06)', border: 'none', cursor: 'pointer',
             color: '#A855F7', padding: '8px', borderRadius: '12px',
             display: 'flex', alignItems: 'center', backdropFilter: 'blur(8px)',
@@ -79,7 +76,6 @@ export default function Relatorio({ navigate, params, avaliados, avaliacoes }: S
 
       <div style={{ padding: '0 16px 32px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
 
-        {/* Score card */}
         <div className="glass scale-in" style={{
           borderRadius: '24px', padding: '22px',
           background: `linear-gradient(135deg, ${clsBg(cls).replace('0.1', '0.15')}, rgba(109,40,217,0.08))`,
@@ -126,7 +122,6 @@ export default function Relatorio({ navigate, params, avaliados, avaliacoes }: S
           </div>
         </div>
 
-        {/* Tests */}
         <div>
           <p style={{ margin: '0 0 10px', fontSize: '11px', fontWeight: 700, color: '#4B5060', letterSpacing: '1.2px' }}>
             📊 RESULTADOS DOS TESTES
@@ -156,7 +151,6 @@ export default function Relatorio({ navigate, params, avaliados, avaliacoes }: S
           </div>
         </div>
 
-        {/* Export */}
         <div>
           <p style={{ margin: '0 0 10px', fontSize: '11px', fontWeight: 700, color: '#4B5060', letterSpacing: '1.2px' }}>
             📥 EXPORTAR RELATÓRIO

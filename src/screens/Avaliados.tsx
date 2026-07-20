@@ -9,7 +9,10 @@ export default function Avaliados({ navigate, avaliados, avaliacoes }: ScreenPro
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState<Filter>('todos')
 
-  const lastAv = (id: string) => avaliacoes.filter(a => a.avaliadoId === id).at(-1)
+  const lastAv = (id: string) => {
+    const filtered = avaliacoes.filter(a => a.avaliadoId === id)
+    return filtered.length ? filtered[filtered.length - 1] : undefined
+  }
   const countAv = (id: string) => avaliacoes.filter(a => a.avaliadoId === id).length
 
   const list = avaliados.filter(a =>
@@ -19,7 +22,6 @@ export default function Avaliados({ navigate, avaliados, avaliacoes }: ScreenPro
 
   return (
     <div style={{ flex: 1, position: 'relative' }}>
-      {/* Blob */}
       <div style={{
         position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px',
         borderRadius: '50%', background: 'radial-gradient(circle,#7C3AED,transparent 70%)',
@@ -27,7 +29,6 @@ export default function Avaliados({ navigate, avaliados, avaliacoes }: ScreenPro
         animation: 'floatBlob 16s ease-in-out infinite',
       }}/>
 
-      {/* Header */}
       <div style={{ padding: '52px 20px 16px' }}>
         <h1 style={{ margin: '0 0 2px', fontSize: '26px', fontWeight: 800, letterSpacing: '-0.5px' }}>
           👥 Avaliados
@@ -38,7 +39,6 @@ export default function Avaliados({ navigate, avaliados, avaliacoes }: ScreenPro
       </div>
 
       <div style={{ padding: '0 16px 24px', display: 'flex', flexDirection: 'column', gap: '12px', position: 'relative' }}>
-        {/* Search */}
         <div style={{ position: 'relative' }}>
           <svg style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#6B7280' }}
             width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -56,7 +56,6 @@ export default function Avaliados({ navigate, avaliados, avaliacoes }: ScreenPro
           />
         </div>
 
-        {/* Filters */}
         <div style={{ display: 'flex', gap: '8px' }}>
           {(['todos', 'M', 'F'] as Filter[]).map(f => (
             <button key={f} onClick={() => setFilter(f)} style={{
@@ -77,7 +76,6 @@ export default function Avaliados({ navigate, avaliados, avaliacoes }: ScreenPro
           </span>
         </div>
 
-        {/* List */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {list.map((al, i) => {
             const av = lastAv(al.id)
@@ -90,7 +88,6 @@ export default function Avaliados({ navigate, avaliados, avaliacoes }: ScreenPro
                   display: 'flex', alignItems: 'center', gap: '14px', textAlign: 'left',
                   animationDelay: `${i * 55}ms`,
                 }}>
-                {/* Avatar */}
                 <div style={{
                   width: '50px', height: '50px', borderRadius: '16px', flexShrink: 0,
                   background: al.gender === 'F'

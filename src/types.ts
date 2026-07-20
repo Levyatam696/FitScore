@@ -44,7 +44,7 @@ export interface Avaliacao {
 }
 
 export interface ScreenProps {
-  navigate: (screen: Screen, params?: Record<string, string>) => void
+  navigate: (screen: Screen, params?: Record<string, string>, direction?: 'forward' | 'back') => void
   params: Record<string, string>
   user: User | null
   setUser: (user: User | null) => void

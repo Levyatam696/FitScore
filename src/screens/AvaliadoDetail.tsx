@@ -8,13 +8,12 @@ export default function AvaliadoDetail({ navigate, params, avaliados, avaliacoes
   const avs = avaliacoes.filter(a => a.avaliadoId === params.avaliadoId)
   if (!al) return null
 
-  const last = avs.at(-1)
+  const last = avs.length ? avs[avs.length - 1] : undefined
   const avgScore = avs.length ? Math.round(avs.reduce((s, a) => s + a.score, 0) / avs.length) : 0
   const isFemale = al.gender === 'F'
 
   return (
     <div style={{ flex: 1 }}>
-      {/* Hero header */}
       <div style={{
         padding: '48px 20px 24px',
         background: isFemale
@@ -22,8 +21,7 @@ export default function AvaliadoDetail({ navigate, params, avaliados, avaliacoes
           : 'linear-gradient(160deg,rgba(29,78,216,0.25) 0%,rgba(7,7,15,0) 60%)',
         position: 'relative',
       }}>
-        {/* Back */}
-        <button onClick={() => navigate('avaliados', {}, 'back')} style={{
+        <button onClick={() => navigate('avaliados', undefined, 'back')} style={{
           background: 'rgba(255,255,255,0.06)', border: 'none', cursor: 'pointer',
           color: '#A855F7', padding: '8px', borderRadius: '12px',
           display: 'flex', alignItems: 'center', marginBottom: '20px', backdropFilter: 'blur(8px)',
@@ -34,7 +32,6 @@ export default function AvaliadoDetail({ navigate, params, avaliados, avaliacoes
         </button>
 
         <div style={{ display: 'flex', alignItems: 'flex-end', gap: '16px' }}>
-          {/* Avatar */}
           <div style={{
             width: '72px', height: '72px', borderRadius: '22px', flexShrink: 0,
             background: isFemale
@@ -56,7 +53,6 @@ export default function AvaliadoDetail({ navigate, params, avaliados, avaliacoes
 
       <div style={{ padding: '0 16px 24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
 
-        {/* Score cards row */}
         {avs.length > 0 && (
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
             {[
@@ -77,7 +73,6 @@ export default function AvaliadoDetail({ navigate, params, avaliados, avaliacoes
           </div>
         )}
 
-        {/* Score ring */}
         {avs.length > 0 && (
           <div className="glass" style={{
             borderRadius: '22px', padding: '20px',
@@ -108,7 +103,6 @@ export default function AvaliadoDetail({ navigate, params, avaliados, avaliacoes
           </div>
         )}
 
-        {/* Nova avaliação button */}
         <button onClick={() => navigate('nova-avaliacao', { avaliadoId: al.id })} style={{
           padding: '15px', width: '100%',
           background: 'linear-gradient(135deg,#6D28D9,#A855F7)',
@@ -120,7 +114,6 @@ export default function AvaliadoDetail({ navigate, params, avaliados, avaliacoes
           📋 Nova Avaliação
         </button>
 
-        {/* History */}
         <div>
           <p style={{ margin: '4px 0 10px', fontSize: '11px', fontWeight: 700, color: '#4B5060', letterSpacing: '1.2px' }}>
             📅 HISTÓRICO ({avs.length})
@@ -164,7 +157,6 @@ export default function AvaliadoDetail({ navigate, params, avaliados, avaliacoes
           </div>
         </div>
 
-        {/* Delete */}
         <button style={{
           padding: '14px', background: 'rgba(248,113,113,0.08)',
           border: '1px solid rgba(248,113,113,0.2)',
