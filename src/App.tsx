@@ -58,12 +58,12 @@ export default function App() {
   }
 
   return (
-    <div style={{ width: '100%', minHeight: '100vh', backgroundColor: 'var(--bg)', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ width: '100%', maxWidth: '430px', minHeight: '100vh', position: 'relative', backgroundColor: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
+    <div className="app-shell">
+      <div className="app-container">
         <div
           key={navKey}
-          className={cls}
-          style={{ flex: 1, display: 'flex', flexDirection: 'column', overflowY: 'auto', paddingBottom: showNav ? 72 : 0 }}
+          className={`${cls} app-screen`}
+          style={{ paddingBottom: showNav ? 84 : 0 }}
         >
           <Screen />
         </div>

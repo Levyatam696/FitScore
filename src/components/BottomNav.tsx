@@ -71,17 +71,7 @@ export default function BottomNav({ screen, navigate, user }: Props) {
   const isAvaliados = screen === 'avaliados' || screen === 'avaliado-detail'
 
   return (
-    <div style={{
-      position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)',
-      width: '100%', maxWidth: '430px',
-      height: '76px',
-      backgroundColor: 'rgba(7,7,18,0.82)',
-      backdropFilter: 'blur(24px)',
-      WebkitBackdropFilter: 'blur(24px)',
-      borderTop: '1px solid rgba(255,255,255,0.06)',
-      display: 'flex', alignItems: 'center', justifyContent: 'space-around',
-      zIndex: 100, paddingBottom: '8px', paddingLeft: '4px', paddingRight: '4px',
-    }}>
+    <div className="bottom-nav" style={{ paddingBottom: '8px', paddingLeft: '4px', paddingRight: '4px' }}>
       <Tab icon={icons.home}  label="Início"    active={screen === 'dashboard'} onClick={() => navigate('dashboard')} />
       <Tab icon={icons.users} label="Avaliados" active={isAvaliados}            onClick={() => navigate('avaliados')} />
 
