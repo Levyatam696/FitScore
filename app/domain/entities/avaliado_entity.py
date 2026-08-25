@@ -1,4 +1,9 @@
-﻿#O sistema deve armazenar corretamente os dados
+﻿#O sistema deve permitir inserir escola e turma
+#Os campos devem aceitar texto
+#O sistema deve limitar tamanho dos campos
+#O sistema deve permitir edição posterior
+#O sistema deve armazenar corretamente
+
 from dataclasses import dataclass
 from enum import Enum
 from app.domain.value_objects.sexo import Sexo
@@ -12,6 +17,8 @@ class Avaliado:
     nome: str
     sexo: Sexo
     data_nascimento: datetime.date
+    escola: str
+    turma: str
 
     def __post_init__(self):
         self.validar_dados()
@@ -27,6 +34,7 @@ class Avaliado:
         idade = self.calcular_idade()
         if 4 < idade < 80:
             return True
+        
         else:
             raise ValueError("Idade inválida. Deve estar entre 5 e 79 anos.")
 
@@ -49,11 +57,3 @@ class Avaliado:
 
 
         self.validar_idade()
-
-
-    def editar_dados(self, nome, sexo, data_nascimento):    #editar a data de nascimento, sexo e nome do avaliado
-        self.nome = nome
-        self.sexo = sexo
-        self.data_nascimento = data_nascimento
-
-        self.validar_dados()
